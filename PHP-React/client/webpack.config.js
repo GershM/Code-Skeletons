@@ -1,33 +1,48 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const path = require('path');
+
 module.exports = {
+  entry: {
+    app: path.resolve(__dirname, './index.js'),
+    vendors: ['react', 'react-dom']
+  },
   module: {
-    entry: {
-      app: path.resolve(__dirname, './index.js'),
-      vendors: ['react', 'react-dom', 'react-router', 'flux', 'events', 'axios', 'postal', 'react-measure', 'jquery', 'toastr', 'classnames',
-          'highstock-release', 'react-grid-layout', 'react-bootstrap-date-picker', 'react-bootstrap', 'react-select', 'es6-object-assign', 'reactstrap', 'react-transition-group']
-     },
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
-      },
-      {
-        test: /\.html$/,
-        use: [
-          {
-            loader: "html-loader"
-          }
-        ]
-      }
+        test: /\.jsx?$/,
+        include: [
+            __dirname
+        ],
+        loader: "babel-loader",      
+    }   
     ]
   },
-  plugins: [
-    new HtmlWebPackPlugin({
-      template: "../main/index.php",
-      filename: "./index.php"
-    })
-  ]
+  output: {
+    path: path.resolve(__dirname, '../main/assets/js'),
+    filename: 'lib.js',
+    sourceMapFilename: '[name].[hash:8].map',
+    chunkFilename: '[id].[hash:8].js'
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'async',
+      minSize: 30000,
+      maxSize: 0,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: '~',
+      name: true,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        }
+      }
+    }
+  }
 };

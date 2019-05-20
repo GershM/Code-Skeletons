@@ -1,7 +1,7 @@
 <?php 
-require __DIR__ . "../main.php";
-
+require "../server/main.php";
 ?>
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,27 +11,10 @@ require __DIR__ . "../main.php";
 <body>
     <div class="container">
         <div class="row mt-5">
-            <div id='root' class="col-md-4 offset-md-1">
-                
-            </div>
+            <div id='root' class="col-md-4 offset-md-1"/>                
         </div>
     </div>
 <script type="text/javascript">
-    var _sysctx = <?php echo json_encode($sysCtx) . PHP_EOL;?>
-    if (_sysctx.enablePageProgress) {
-        let jsPace = document.createElement("script");
-        /* using pace in js example: window.Pace.restart(); */
-        paceOptions = {
-            restartOnRequestAfter: true,
-            restartOnPushState: false,
-            ajax: {ignoreURLs: ['queue', 'serversRuntime', 'organizationsRuntime', 'paceDisable', 'hotjar.com']},
-            eventLag: false,
-        };
-        jsPace.type = "application/javascript";
-        jsPace.src = "/assets/js/pace.min.js";
-        document.body.appendChild(jsPace);
-    }
-
     function detectIE() {
         let ua = window.navigator.userAgent;
         let msie = ua.indexOf('MSIE ');
