@@ -27,5 +27,4 @@ Start the project:
 	    </Directory>
 	```
 	* execute the following code : ``a2enmod rewrite``
- 	* restart apache   
-    
+ 	* restart apache
