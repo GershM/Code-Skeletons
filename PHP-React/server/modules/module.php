@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-
+require __DIR__.'/routes.php';
 use \Slim\App;
 use \Slim\Http\Request;
 use \Slim\Http\Response;
@@ -12,20 +12,20 @@ if (!defined('IS_TEST_VENDOR')) {
     require_once '/../vendor/autoload.php';
 }
 
-
 /**
  * create an slim api application object, used to route the entire application and handle all api calls from client
  * @return App
  */
 function bootstrap() : App {
-    $app = new App();
-    $app->group('',function() {
-        $this->get('/hello/{name}', function (Request $request, Response $response, array $args) {
-            $name = $args['name'];
-            $response->getBody()->write("Hello, $name");            
-            return $response;
-        });
-    });
-    $app->run();
+    $app = new App([
+        'settings' => [
+            'determineRouteBeforeAppMiddleware' => true,
+            'displayErrorDetails' => true,
+            'addContentLengthHeader' => false,
+            ]]
+        );
+
+    buildRoutes($app);
+    
     return $app;
 }
