@@ -7,3 +7,25 @@ Requerements:
 
 * React V16.8.6: https://reactjs.org
      * Node.js V10.13.0: https://nodejs.org/en/ 
+	 * npm: https://www.npmjs.com/get-npm
+
+
+Start the project:
+* clone/download the project
+* Client:
+	* Change directory to the client directory
+	* Install Nodejs and npm	
+	* Run "npm install"
+	* Run "nup run build"
+* Server(Apache):	
+	* Add to the site-enable config:	
+    ```conf
+	    <Directory "C:\xampp\htdocs\Code-Skeletons\PHP-React\main">
+		    Options Indexes FollowSymLinks Includes ExecCGI
+		    AllowOverride All
+		    Require all granted
+	    </Directory>
+	```
+	* execute the following code : ``a2enmod rewrite``
+ 	* restart apache   
+    
