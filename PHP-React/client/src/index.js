@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './src/App'
+import App from './App'
 
 
 // function buildRoutes() {
@@ -11,6 +11,5 @@ import App from './src/App'
 
 //     )
 // }
-debugger
 ReactDOM.render(App(), document.getElementById("root"));
 

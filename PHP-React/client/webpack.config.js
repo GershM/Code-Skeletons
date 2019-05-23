@@ -1,34 +1,33 @@
 const path = require('path');
+const HtmlWebPackPlugin = require("html-webpack-plugin");
 const webpack = require('webpack');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
-  entry: {
-    app: path.resolve(__dirname,'./main.js'),
-    vendors: ['react', 'react-dom']
-  },
-  devtool: "source-map",
   output: {
-    path: path.resolve('../main/assets/js'),
-    filename: '[name].js'
-  },
-  resolve: {
-    modules: [
-      'node_modules',
-      'client'
-    ]
+    path: path.resolve('../main/')
   },
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
-        include: [
-            __dirname
-        ],
-        loader: "babel-loader",      
-    }   
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
+      },
+      {
+        test: /\.php$/,
+        use: [
+          {
+            loader: "html-loader"
+          }
+        ]
+      }
     ]
   },  
   plugins: [
-    new CleanWebpackPlugin()
+    new HtmlWebPackPlugin({
+      template: "./src/index.php",
+      filename: "./index.php"
+    })
   ],  
 };

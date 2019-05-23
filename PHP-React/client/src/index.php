@@ -1,6 +1,5 @@
 <?php 
 require "../server/main.php";
-
 ?>
  
 <!DOCTYPE html>
@@ -16,5 +15,5 @@ require "../server/main.php";
         </div>
     </div>
 <script type="text/javascript" src="index.js"></script>
-<script type="text/javascript" src="main.js"></script></body>
+</body>
 </html>
