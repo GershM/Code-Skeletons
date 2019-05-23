@@ -8,6 +8,7 @@ Requerements:
 * React V16.8.6: https://reactjs.org
      * Node.js V10.13.0: https://nodejs.org/en/ 
 	 * npm: https://www.npmjs.com/get-npm
+	 * React Bootstrap: https://react-bootstrap.github.io/
 
 
 Start the project:
@@ -20,7 +21,7 @@ Start the project:
 * Server(Apache):	
 	* Add to the site-enable config:	
     ```conf
-	    <Directory "C:\xampp\htdocs\Code-Skeletons\PHP-React\main">
+	    <Directory "main folder location">
 		    Options Indexes FollowSymLinks Includes ExecCGI
 		    AllowOverride All
 		    Require all granted
