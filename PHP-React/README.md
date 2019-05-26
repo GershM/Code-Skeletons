@@ -23,7 +23,7 @@ Start the project:
 * Server(Apache):		
 	* Add to the site-enable config (Debian/Ubuntu dir: "/etc/apache2/site-enabled/00-default.conf", Windows dir: ‪"C:\xampp\apache\conf\httpd.conf" ):	
     ```conf
-	    <Directory "main folder location">
+	    <Directory "[project location]/Code-Skeletons/PHP-React/main">
 		    Options Indexes FollowSymLinks Includes ExecCGI
 		    AllowOverride All
 		    Require all granted
