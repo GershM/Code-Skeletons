@@ -8,9 +8,9 @@ Requerements:
      
 * React V16.8.6: https://reactjs.org
      * Node.js V10.13.0: https://nodejs.org/en/ 
-	 * npm: https://www.npmjs.com/get-npm
-	 * React Bootstrap: https://react-bootstrap.github.io/
-	 
+     * npm: https://www.npmjs.com/get-npm
+     * React Bootstrap: https://react-bootstrap.github.io/
+     * React-Router: https://reacttraining.com/react-router/web/guides/quick-start 
 * For Windows install XAMPP (Apache + PHP): https://www.apachefriends.org/index.html 	
 
 Start the project:
