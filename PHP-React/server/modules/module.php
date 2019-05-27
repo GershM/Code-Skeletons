@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-require __DIR__.'/routes.php';
+require __DIR__.'/../routes/routes.php';
 use \Slim\App;
 use \Slim\Http\Request;
 use \Slim\Http\Response;
@@ -9,7 +9,7 @@ use \Slim\Http\Response;
 if (!defined('IS_TEST_VENDOR')) {
     require_once __DIR__ . '/../vendor/autoload.php';
 } else {    
-    require_once '/../vendor/autoload.php';
+    require_once '../vendor/autoload.php';
 }
 
 /**
