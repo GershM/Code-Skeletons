@@ -20,7 +20,7 @@ Start the project:
 	* Install Nodejs and npm	
 	* Run "npm install"
 	* Run "npm run build" (or one of the following scripts can be executed: wp_gen.sh (Linux) or wp_gen.bat (Windows))
-* Server(Apache):		
+* Server(Debian\Ubuntu:Apache, Windows: XAMPP):		
 	* Add to the site-enable config (Debian/Ubuntu dir: "/etc/apache2/site-enabled/00-default.conf", Windows dir: ‪"C:\xampp\apache\conf\httpd.conf" ):	
     ```conf
 	    <Directory "[project location]/Code-Skeletons/PHP-React/main">

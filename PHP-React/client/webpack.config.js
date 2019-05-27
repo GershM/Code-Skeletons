@@ -3,7 +3,8 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const webpack = require('webpack');
 module.exports = {
   output: {
-    path: path.resolve('../main/')
+    path: path.resolve('../main/'),
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -27,7 +28,10 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       }
     ]
-  },  
+  }, 
+  devServer: {
+    historyApiFallback: true,
+  }, 
   plugins: [
     new HtmlWebPackPlugin({
       template: "./src/index.php",
