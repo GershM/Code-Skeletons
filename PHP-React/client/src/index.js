@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App'
 import { BrowserRouter, Switch, Redirect, Route, Link  } from "react-router-dom";
-// Import bootstrap css
 import 'bootstrap/dist/css/bootstrap.min.css'
-
+import axios from "axios";
 import { createBrowserHistory } from "history";
 
+import App from './App'
+import Error404 from './404'
 const history = createBrowserHistory()
 
 const Routes =() =>
@@ -18,14 +18,16 @@ const Routes =() =>
             <Switch>
                 <Route exact={true} path="/" component={App}/>
                 <Route path="/about" component={Notfound2}/>
-                <Route component={Notfound} />
+                <Route component={Error404} />
             </Switch>
         </BrowserRouter>
 
-const Notfound = () => <h1>Not found</h1>
 const Notfound2 = () => <h1>test</h1>
 
-
+axios.defaults.baseURL = '/api';
+axios.defaults.headers = {
+    'Content-Type': 'application/json'
+};
 
 ReactDOM.render(<Routes />, document.getElementById("root"));
 
