@@ -16,6 +16,5 @@
             <div id='root' class="col-md-4 offset-md-1"/>                
         </div>
     </div>
-
 <script type="text/javascript" src="/main.js"></script></body>
 </html>

@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const webpack = require('webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
   output: {
     path: path.resolve('../main/'),
@@ -32,10 +34,16 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
   }, 
-  plugins: [
+  plugins: [    
+    new CleanWebpackPlugin(),
     new HtmlWebPackPlugin({
       template: "./src/index.php",
       filename: "./index.php"
-    })
+    }),
+    new CopyPlugin([
+      { from: './src/.htaccess', to: '../main/' },
+      { from: './src/api/.htaccess', to: '../main/api/' },
+      { from: './src/api/index.php', to: '../main/api/' },
+    ]),
   ],  
 };
